@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentosComponent implements OnInit {
 
+  public departamentos = [
+    'Informática',
+    'Decoração',
+    'Vestuário'
+  ];
+  title = 'Departamentos';
+
   constructor() { }
 
   ngOnInit() {

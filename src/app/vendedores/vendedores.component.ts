@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vendedores.component.css']
 })
 export class VendedoresComponent implements OnInit {
-
+  
+  title = 'Vendedores';
+  public vendedores = [
+    'Diogo',
+    'João',
+    'José',
+    'Laura',
+    'Luana'
+  ];
+  
   constructor() { }
-
   ngOnInit(): void {
   }
-
 }
