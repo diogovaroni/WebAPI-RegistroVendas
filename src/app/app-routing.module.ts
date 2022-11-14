@@ -6,6 +6,7 @@ import { VendedoresComponent } from './vendedores/vendedores.component';
 import { VendasComponent } from './vendas/vendas.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'vendedores', component: VendedoresComponent },
   { path: 'departamentos', component: DepartamentosComponent },
