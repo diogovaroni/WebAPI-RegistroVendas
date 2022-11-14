@@ -9,11 +9,9 @@ export class VendedoresComponent implements OnInit {
   
   public title = 'Vendedores';
   public vendedores = [
-    'Diogo',
-    'João',
-    'José',
-    'Laura',
-    'Luana'
+    { id: 1, nome: 'Diogo', cpf: '000', email: 'diogo@gmail.com', baseSalarial: 2500 },
+    { id: 2, nome: 'João', cpf: '111', email: 'joao@gmail.com', baseSalarial: 1800 },
+    { id: 3, nome: 'Laura', cpf: '222', email: 'laura@gmail.com', baseSalarial: 2200}    
   ];
   
   constructor() { }

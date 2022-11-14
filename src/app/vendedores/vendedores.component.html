@@ -1,6 +1,22 @@
 <app-title [title]="title"></app-title>
-<ul>
-    <li *ngFor="let vendedor of vendedores">
-        {{vendedor}}
-    </li>
-</ul>
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Base Salarial</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vendedor of vendedores">
+            <th scope="row">{{vendedor.id}}</th>
+            <td>{{vendedor.nome}}</td>
+            <td>{{vendedor.cpf}}</td>
+            <td>{{vendedor.email}}</td>
+            <td>{{vendedor.baseSalarial}}</td>
+        </tr>          
+    </tbody>
+  </table>

@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DepartamentosComponent implements OnInit {
 
   public departamentos = [
-    'Informática',
-    'Decoração',
-    'Vestuário'
+    { id: 1, nome: 'Informática' },
+    { id: 2, nome: 'Decoração' } ,
+    { id: 3, nome: 'Vestuário' }
   ];
   title = 'Departamentos';
 
