@@ -7,14 +7,16 @@ import { VendedoresComponent } from './vendedores/vendedores.component';
 import { DepartamentosComponent } from './departamentos/departamentos.component';
 import { VendasComponent } from './vendas/vendas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     VendedoresComponent,
       DepartamentosComponent,
       VendasComponent,
-      DashboardComponent
+      DashboardComponent,
+      NavComponent
    ],
   imports: [
     BrowserModule,
