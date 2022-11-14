@@ -1,7 +1,24 @@
-<app-title [title]="title"></app-title>
+<div *ngIf="departamentoSelecionado">
+  <div class="row">
+    <div class="mr-auto">
+      <app-title [title]="'Vendedor: ' + departamentoSelecionado"></app-title>
+    </div>
+    <div class="mt-1">
+      <button class="btn btn-warning" (click)='voltar()'>Voltar</button>
+    </div>
+  </div>
 
+  <form>
+   <div class="form-group">
+      <label for="formGroupExampleInput" class="form-label">Nome</label>
+      <input type="text" class="form-control" >
+    </div>  
+  </form>
+</div>
 
-<table class="table">
+<div *ngIf="!departamentoSelecionado">
+  <app-title [title]="title"></app-title>
+  <table class="table table-hover">
     <thead class="table-dark">
         <tr>
             <th scope="col">Id</th>
@@ -9,9 +26,18 @@
           </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let departamento of departamentos">
+        <tr *ngFor="let departamento of departamentos"
+        style="cursor: pointer;" (click)="departamentoSelect(departamento)">
             <th scope="row">{{departamento.id}}</th>
             <td>{{departamento.nome}}</td>
-          </tr>          
+          </tr>
     </tbody>
   </table>
+</div>
+
+
+
+
+
+
+
