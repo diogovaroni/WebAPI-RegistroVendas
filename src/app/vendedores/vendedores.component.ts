@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vendedor } from '../models/Vendedor';
 
 @Component({
@@ -8,6 +9,7 @@ import { Vendedor } from '../models/Vendedor';
 })
 export class VendedoresComponent implements OnInit {
   
+  public vendedorForm: FormGroup;
   public title = 'Vendedores';
   public vendedorSelecionado: Vendedor;
   public textSimple: string;
@@ -18,18 +20,34 @@ export class VendedoresComponent implements OnInit {
     { id: 3, nome: 'Laura', cpf: '222', email: 'laura@gmail.com', baseSalarial: 2200}    
   ];
 
-  constructor() { 
-    
+  constructor(private fb: FormBuilder) { 
+    this.criarForm();
+  }
+
+  ngOnInit(): void {
+  }
+
+  criarForm() {
+    this.vendedorForm = this.fb.group({
+      nome: ['', Validators.required],
+      cpf: ['', Validators.required],
+      email: ['', Validators.required],
+      baseSalarial: ['', Validators.required]
+    });
+  }
+
+  vendedorSubmit() {
+    console.log(this.vendedorForm.value);
   }
 
   vendedorSelect(vendedor: Vendedor) {
     this.vendedorSelecionado = vendedor;
+    this.vendedorForm.patchValue(vendedor);
   }
 
   voltar() {
     this.vendedorSelecionado = null;
   }
 
-  ngOnInit(): void {
-  }
+
 }
