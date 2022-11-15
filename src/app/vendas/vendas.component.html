@@ -1,4 +1,63 @@
-<app-title [title]="title"></app-title>
-<p>
-  vendas works!
-</p>
+<div class="row">
+
+
+  <div *ngIf="vendaSelecionada">
+    <div class="row">
+      <div class="mr-auto">
+        <app-title [title]="'Código Venda: ' + vendaSelecionada.id"></app-title>
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-sm btn-outline-danger" (click)='voltar()'>Voltar</button>
+      </div>
+    </div>
+    
+    <form [formGroup]="vendaForm" (submit)="vendaSubmit()">
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="form-label">Valor (R$)</label>
+        <input type="text" formControlName="nome" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="form-label">Id Vendedor</label>
+        <input type="text" formControlName="nome" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="form-label">Id Departamento</label>
+        <input type="text" formControlName="nome" class="form-control" >
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success" [disabled]="!vendaForm.valid">Enviar</button>
+    </div>
+    </form>
+  </div>
+  
+  <div [ngClass]="{'col-sm-6': vendaSelecionada}">
+    <app-title [title]="title"></app-title>
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>          
+          <th scope="col">Id</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Id Vendedor</th>
+          <th scope="col">Id Departamento</th>
+          <th scape="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venda of vendas" style="cursor: pointer;" >          
+          <td scope="row">{{venda.id}}</td>
+          <td>{{venda.valor}}</td>
+          <td>{{venda.idVendedor}}</td>
+          <td>{{venda.idDepartamento}}</td>
+          <td>
+            <div class="btn-group">    
+              <td><button (click)="vendaSelect(venda)" class="btn btn-sm btn-outline-warning">Visualizar</button></td>        
+              <button class="btn btn-sm btn-outline-primary">Editar</button>
+              <button class="btn btn-sm btn-outline-danger">Deletar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

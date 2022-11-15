@@ -24,7 +24,8 @@ export class VendedoresComponent implements OnInit {
   modalRef?: BsModalRef;    
    
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template,
+      Object.assign({}, { class: 'gray modal-lg' }));
   }
 
   constructor(private fb: FormBuilder, private modalService: BsModalService) { 
