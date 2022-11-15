@@ -10,6 +10,8 @@ export class VendedoresComponent implements OnInit {
   
   public title = 'Vendedores';
   public vendedorSelecionado: Vendedor;
+  public textSimple: string;
+
   public vendedores = [
     { id: 1, nome: 'Diogo', cpf: '000', email: 'diogo@gmail.com', baseSalarial: 2500 },
     { id: 2, nome: 'João', cpf: '111', email: 'joao@gmail.com', baseSalarial: 1800 },

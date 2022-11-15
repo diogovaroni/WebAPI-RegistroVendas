@@ -10,6 +10,8 @@ export class DepartamentosComponent implements OnInit {
 
   public title = 'Departamentos';
   public departamentoSelecionado: Departamento;
+  public textSimple: string;
+
   public departamentos = [
     { id: 1, nome: 'Informática' },
     { id: 2, nome: 'Decoração' } ,
