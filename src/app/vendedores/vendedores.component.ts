@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Vendedor } from '../models/Vendedor';
 
 @Component({
   selector: 'app-vendedores',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class VendedoresComponent implements OnInit {
   
   public title = 'Vendedores';
-  public vendedorSelecionado: string;
+  public vendedorSelecionado: Vendedor;
   public vendedores = [
     { id: 1, nome: 'Diogo', cpf: '000', email: 'diogo@gmail.com', baseSalarial: 2500 },
     { id: 2, nome: 'João', cpf: '111', email: 'joao@gmail.com', baseSalarial: 1800 },
@@ -16,15 +17,15 @@ export class VendedoresComponent implements OnInit {
   ];
 
   constructor() { 
-    this.vendedorSelecionado = '';
+    
   }
 
-  vendedorSelect(vendedor: any) {
-    this.vendedorSelecionado = vendedor.nome;
+  vendedorSelect(vendedor: Vendedor) {
+    this.vendedorSelecionado = vendedor;
   }
 
   voltar() {
-    this.vendedorSelecionado = '';
+    this.vendedorSelecionado = null;
   }
 
   ngOnInit(): void {

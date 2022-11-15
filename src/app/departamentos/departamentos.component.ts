@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Departamento } from '../models/Departamento';
 
 @Component({
   selector: 'app-departamentos',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DepartamentosComponent implements OnInit {
 
   public title = 'Departamentos';
-  public departamentoSelecionado: string;
+  public departamentoSelecionado: Departamento;
   public departamentos = [
     { id: 1, nome: 'Informática' },
     { id: 2, nome: 'Decoração' } ,
@@ -16,16 +17,15 @@ export class DepartamentosComponent implements OnInit {
   ];
 
 
-  constructor() { 
-    this.departamentoSelecionado = ''
+  constructor() {     
   }
 
-  departamentoSelect(departamento: any) {
-    this.departamentoSelecionado = departamento.nome;
+  departamentoSelect(departamento: Departamento) {
+    this.departamentoSelecionado = departamento;
   }
 
   voltar() {
-    this.departamentoSelecionado = '';
+    this.departamentoSelecionado = null;
   }
 
   ngOnInit() {

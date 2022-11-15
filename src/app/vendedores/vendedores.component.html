@@ -1,9 +1,7 @@
-
-
 <div *ngIf="vendedorSelecionado">
     <div class="row">
         <div class="mr-auto">
-            <app-title [title]="'Vendedor: ' + vendedorSelecionado"></app-title>
+            <app-title [title]="'Vendedor: ' + vendedorSelecionado.id"></app-title>
         </div>
         <div class="mt-1">
             <button class="btn btn-warning" (click)='voltar()'>Voltar</button>
@@ -14,19 +12,19 @@
     <form>
         <div class="form-group">
             <label for="formGroupExampleInput" class="form-label">Nome</label>
-            <input type="text" class="form-control" >
+            <input type="text" value="{{vendedorSelecionado.nome}}" class="form-control" >
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="form-label">CPF</label>
-            <input type="text" class="form-control" >
+            <input type="text" value="{{vendedorSelecionado.cpf}}" class="form-control" >
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="form-label">E-mail</label>
-            <input type="text" class="form-control" >
+            <input type="text" value="{{vendedorSelecionado.email}}" class="form-control" >
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2" class="form-label">Base Salarial</label>
-            <input type="text" class="form-control" >
+            <input type="text" value="{{vendedorSelecionado.baseSalarial}}" class="form-control" >
         </div>
     </form>
 </div>

@@ -1,7 +1,7 @@
 <div *ngIf="departamentoSelecionado">
   <div class="row">
     <div class="mr-auto">
-      <app-title [title]="'Vendedor: ' + departamentoSelecionado"></app-title>
+      <app-title [title]="'Vendedor: ' + departamentoSelecionado.id"></app-title>
     </div>
     <div class="mt-1">
       <button class="btn btn-warning" (click)='voltar()'>Voltar</button>
@@ -11,7 +11,7 @@
   <form>
    <div class="form-group">
       <label for="formGroupExampleInput" class="form-label">Nome</label>
-      <input type="text" class="form-control" >
+      <input type="text" value="{{departamentoSelecionado.nome}}" class="form-control" >
     </div>  
   </form>
 </div>
