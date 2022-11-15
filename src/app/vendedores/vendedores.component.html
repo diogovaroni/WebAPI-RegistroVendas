@@ -1,58 +1,65 @@
-<div *ngIf="vendedorSelecionado">
-    <div class="row">
-        <div class="mr-auto">
-            <app-title [title]="'Vendedor: ' + vendedorSelecionado.id"></app-title>
+ 
+ 
+ <div class="row">
+    <div class="col-sm-6" *ngIf="vendedorSelecionado">
+        <div class="row">
+            <div class="mr-auto">
+                <app-title [title]="'Código Vendedor: ' + vendedorSelecionado.id"></app-title>
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-outline-danger" (click)='voltar()'>Voltar</button>
+            </div>
         </div>
-        <div class="mt-1">
-            <button class="btn btn-warning" (click)='voltar()'>Voltar</button>
-        </div>
+        
+        
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput" class="form-label">Nome</label>
+                <input type="text" value="{{vendedorSelecionado.nome}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2" class="form-label">CPF</label>
+                <input type="text" value="{{vendedorSelecionado.cpf}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2" class="form-label">E-mail</label>
+                <input type="text" value="{{vendedorSelecionado.email}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2" class="form-label">Base Salarial</label>
+                <input type="text" value="{{vendedorSelecionado.baseSalarial}}" class="form-control" >
+            </div>
+            <div class="form-group">
+                <hr>
+                <button class="btn btn-success">Enviar</button>
+            </div>
+        </form>
     </div>
     
-
-    <form>
-        <div class="form-group">
-            <label for="formGroupExampleInput" class="form-label">Nome</label>
-            <input type="text" value="{{vendedorSelecionado.nome}}" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2" class="form-label">CPF</label>
-            <input type="text" value="{{vendedorSelecionado.cpf}}" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2" class="form-label">E-mail</label>
-            <input type="text" value="{{vendedorSelecionado.email}}" class="form-control" >
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2" class="form-label">Base Salarial</label>
-            <input type="text" value="{{vendedorSelecionado.baseSalarial}}" class="form-control" >
-        </div>
-    </form>
+    
+    <div [ngClass]="{'col-sm-6': vendedorSelecionado, 'col-sm-12': !vendedorSelecionado }">
+        <app-title [title]="title"></app-title>
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Base Salarial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vendedor of vendedores"
+                style="cursor: pointer;" (click)="vendedorSelect(vendedor)">
+                <th scope="row">{{vendedor.id}}</th>
+                <td>{{vendedor.nome}}</td>
+                <td>{{vendedor.cpf}}</td>
+                <td>{{vendedor.email}}</td>
+                <td>{{vendedor.baseSalarial}}</td>
+                </tr>          
+            </tbody>
+        </table>
+    </div>
 </div>
-
-
-<div *ngIf="!vendedorSelecionado">
-    <app-title [title]="title"></app-title>
-    <table class="table table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Base Salarial</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let vendedor of vendedores"
-        style="cursor: pointer;" (click)="vendedorSelect(vendedor)">
-            <th scope="row">{{vendedor.id}}</th>
-            <td>{{vendedor.nome}}</td>
-            <td>{{vendedor.cpf}}</td>
-            <td>{{vendedor.email}}</td>
-            <td>{{vendedor.baseSalarial}}</td>
-        </tr>          
-    </tbody>
-    </table>
-</div> 
-
 

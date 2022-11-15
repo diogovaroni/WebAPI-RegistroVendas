@@ -1,41 +1,47 @@
-<div *ngIf="departamentoSelecionado">
-  <div class="row">
-    <div class="mr-auto">
-      <app-title [title]="'Vendedor: ' + departamentoSelecionado.id"></app-title>
-    </div>
-    <div class="mt-1">
-      <button class="btn btn-warning" (click)='voltar()'>Voltar</button>
-    </div>
-  </div>
 
-  <form>
-   <div class="form-group">
-      <label for="formGroupExampleInput" class="form-label">Nome</label>
-      <input type="text" value="{{departamentoSelecionado.nome}}" class="form-control" >
+
+<div class="row">
+  <div class="col-sm-6" *ngIf="departamentoSelecionado">
+    <div class="row">
+      <div class="mr-auto">
+        <app-title [title]="'Código Departamento: ' + departamentoSelecionado.id"></app-title>
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-outline-danger" (click)='voltar()'>Voltar</button>
+      </div>
+    </div>
+    
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="form-label">Nome</label>
+        <input type="text" value="{{departamentoSelecionado.nome}}" class="form-control" >
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success">Enviar</button>
     </div>  
-  </form>
-</div>
-
-<div *ngIf="!departamentoSelecionado">
-  <app-title [title]="title"></app-title>
-  <table class="table table-hover">
-    <thead class="table-dark">
+    </form>
+  </div>
+  
+  <div [ngClass]="{'col-sm-6': departamentoSelecionado, 'col-sm-12': !departamentoSelecionado }">
+    <app-title [title]="title"></app-title>
+    <table class="table table-hover">
+      <thead class="table-dark">
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-          </tr>
-    </thead>
-    <tbody>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+        </tr>
+      </thead>
+      <tbody>
         <tr *ngFor="let departamento of departamentos"
         style="cursor: pointer;" (click)="departamentoSelect(departamento)">
-            <th scope="row">{{departamento.id}}</th>
-            <td>{{departamento.nome}}</td>
-          </tr>
-    </tbody>
-  </table>
+        <th scope="row">{{departamento.id}}</th>
+        <td>{{departamento.nome}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
 
 
 
