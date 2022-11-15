@@ -49,5 +49,4 @@ export class VendedoresComponent implements OnInit {
     this.vendedorSelecionado = null;
   }
 
-
 }
