@@ -14,20 +14,20 @@
     <form [formGroup]="vendaForm" (submit)="vendaSubmit()">
       <div class="form-group">
         <label for="formGroupExampleInput" class="form-label">Valor (R$)</label>
-        <input type="text" formControlName="nome" class="form-control" >
+        <input type="text" formControlName="valor" class="form-control" >
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput" class="form-label">Id Vendedor</label>
-        <input type="text" formControlName="nome" class="form-control" >
+        <input type="text" formControlName="idVendedor" class="form-control" >
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput" class="form-label">Id Departamento</label>
-        <input type="text" formControlName="nome" class="form-control" >
+        <input type="text" formControlName="idDepartamento" class="form-control" >
       </div>
       <div class="form-group">
         <hr>
-        <button class="btn btn-success" [disabled]="!vendaForm.valid">Enviar</button>
-    </div>
+        <button class="btn btn-sm btn-success" [disabled]="!vendaForm.valid">Enviar</button>
+      </div>
     </form>
   </div>
   
@@ -44,7 +44,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let venda of vendas" style="cursor: pointer;" >          
+        <tr *ngFor="let venda of vendas" style="cursor: pointer;" >                    
           <td scope="row">{{venda.id}}</td>
           <td>{{venda.valor}}</td>
           <td>{{venda.idVendedor}}</td>

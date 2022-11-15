@@ -30,7 +30,9 @@ export class VendasComponent implements OnInit {
 
   criarForm() {
     this.vendaForm = this.fb.group({
-      nome: ['', Validators.required]
+      valor: ['', Validators.required],
+      idVendedor: ['', Validators.required],
+      idDepartamento: ['', Validators.required],
     });
   }
 
