@@ -60,6 +60,7 @@
                     <td>
                         <div class="btn-group">
                             <td><button (click)="vendedorSelect(vendedor)" class="btn btn-sm btn-outline-warning">Visualizar</button></td>                         
+                            <button class="btn btn-sm btn-outline-primary" (click)="openModal(template)">Departamentos</button>
                             <button class="btn btn-sm btn-outline-primary">Editar</button>
                             <button class="btn btn-sm btn-outline-danger">Deletar</button>
                         </div>
@@ -69,4 +70,18 @@
         </table>
     </div>
 </div>
+
+
+ 
+<ng-template #template>
+  <div class="modal-body">
+    <app-departamentos></app-departamentos>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn pull-right" (click)="modalRef?.hide()">
+      FECHAR
+    </button>
+  </div>
+</ng-template>
+
 

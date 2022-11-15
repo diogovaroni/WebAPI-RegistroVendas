@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Vendedor } from '../models/Vendedor';
 
 @Component({
@@ -20,7 +21,13 @@ export class VendedoresComponent implements OnInit {
     { id: 3, nome: 'Laura', cpf: '222', email: 'laura@gmail.com', baseSalarial: 2200}    
   ];
 
-  constructor(private fb: FormBuilder) { 
+  modalRef?: BsModalRef;    
+   
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  constructor(private fb: FormBuilder, private modalService: BsModalService) { 
     this.criarForm();
   }
 
